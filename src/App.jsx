@@ -143,32 +143,33 @@ function Nav({ theme, onToggleTheme, scrolled }) {
 function Hero() {
   return (
     <section className="hero" id="top" aria-label="Introduction">
-      <div className="hero-media" aria-hidden="true">
-        <img
-          src={heroImage}
-          alt=""
-          width={1024}
-          height={682}
-          fetchPriority="high"
-        />
-        <div className="hero-scrim" />
-      </div>
-      <div className="wrap hero-content">
-        <h1 className="hero-brand hero-rise">{site.name}</h1>
-        <p className="hero-role hero-rise-delay">{site.role}</p>
-        <p className="hero-support hero-rise-delay-2">{site.heroSupport}</p>
-        <div className="hero-ctas hero-rise-delay-3">
-          <a className="btn btn-primary" href={`mailto:${site.email}`}>
-            Email me
-          </a>
-          <a
-            className="btn btn-ghost"
-            href={site.linkedin}
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
+      <div className="wrap hero-layout">
+        <div className="hero-content">
+          <h1 className="hero-brand hero-rise">{site.name}</h1>
+          <p className="hero-role hero-rise-delay">{site.role}</p>
+          <p className="hero-support hero-rise-delay-2">{site.heroSupport}</p>
+          <div className="hero-ctas hero-rise-delay-3">
+            <a className="btn btn-primary" href={`mailto:${site.email}`}>
+              Email me
+            </a>
+            <a
+              className="btn btn-ghost"
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div className="hero-portrait hero-rise-delay">
+          <img
+            src={heroImage}
+            alt={`${site.name}`}
+            width={1024}
+            height={682}
+            fetchPriority="high"
+          />
         </div>
       </div>
     </section>
