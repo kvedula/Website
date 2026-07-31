@@ -131,34 +131,89 @@ function Nav({ theme, onToggleTheme, scrolled }) {
           >
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
-          <a className="nav-cta" href={`mailto:${site.email}`}>
-            Email
-          </a>
         </div>
       </div>
     </header>
   );
 }
 
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z" />
+    </svg>
+  );
+}
+
+function EmailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M3.5 11.2 20 4.6l-3.2 15.2-4.4-4.1-2.7 2.6.5-5.2 7.4-6.7-9.6 5.9-4.5-1.1z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function GitHubIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.2-3.2 4.3 4.3 0 0 1 .1-3.2s1-.3 3.3 1.2a11.3 11.3 0 0 1 6 0C17.7 4.2 18.7 4.5 18.7 4.5a4.3 4.3 0 0 1 .1 3.2 4.7 4.7 0 0 1 1.2 3.2c0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z" />
+    </svg>
+  );
+}
+
 function Hero() {
+  const { before, highlights, after } = site.heroIntro;
+
   return (
     <section className="hero" id="top" aria-label="Introduction">
       <div className="wrap hero-layout">
         <div className="hero-content">
-          <h1 className="hero-brand hero-rise">{site.name}</h1>
-          <p className="hero-role hero-rise-delay">{site.role}</p>
-          <p className="hero-support hero-rise-delay-2">{site.heroSupport}</p>
+          <p className="hero-eyebrow hero-rise">{site.eyebrow}</p>
+          <h1 className="hero-brand hero-rise-delay">
+            Hello, I&apos;m {site.firstName}.
+          </h1>
+          <p className="hero-intro hero-rise-delay-2">
+            {before}
+            {highlights.map((phrase, i) => (
+              <span key={phrase}>
+                <span className="hero-accent">{phrase}</span>
+                {i < highlights.length - 1
+                  ? i === highlights.length - 2
+                    ? ", and "
+                    : ", "
+                  : null}
+              </span>
+            ))}
+            {after}
+          </p>
+          <p className="hero-tagline hero-rise-delay-2">{site.heroTagline}</p>
           <div className="hero-ctas hero-rise-delay-3">
-            <a className="btn btn-primary" href={`mailto:${site.email}`}>
-              Email me
-            </a>
             <a
-              className="btn btn-ghost"
+              className="btn btn-primary"
               href={site.linkedin}
               target="_blank"
               rel="noreferrer"
             >
+              <LinkedInIcon />
               LinkedIn
+            </a>
+            <a className="btn btn-ghost" href={`mailto:${site.email}`}>
+              <EmailIcon />
+              Email
+            </a>
+            <a
+              className="btn btn-ghost"
+              href={site.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <GitHubIcon />
+              GitHub
             </a>
           </div>
         </div>
@@ -342,34 +397,44 @@ function Toolkit() {
         <h2 className="section-title">More than a tech stack.</h2>
         <div className="toolkit-grid">
           <div className="toolkit-group">
-            <h3>Languages &amp; frameworks</h3>
+            <h3>Programming languages</h3>
             <ul className="tag-list">
               {toolkit.languages.map((t) => (
-                <li key={t}>{t}</li>
+                <li key={t.name}>
+                  <img src={t.logo} alt="" aria-hidden="true" />
+                  <span>{t.name}</span>
+                </li>
               ))}
             </ul>
           </div>
           <div className="toolkit-group">
-            <h3>Platform &amp; tools</h3>
+            <h3>Frameworks &amp; data</h3>
             <ul className="tag-list">
-              {toolkit.platforms.map((t) => (
-                <li key={t}>{t}</li>
+              {toolkit.frameworks.map((t) => (
+                <li key={t.name}>
+                  <img src={t.logo} alt="" aria-hidden="true" />
+                  <span>{t.name}</span>
+                </li>
               ))}
             </ul>
           </div>
-          <div className="toolkit-group">
-            <h3>Domain</h3>
+          <div className="toolkit-group toolkit-group-wide">
+            <h3>AI and platforms</h3>
             <ul className="tag-list">
-              {toolkit.domain.map((t) => (
-                <li key={t}>{t}</li>
+              {toolkit.ai.map((t) => (
+                <li key={t}>
+                  <span>{t}</span>
+                </li>
               ))}
             </ul>
           </div>
-          <div className="toolkit-group">
-            <h3>Leadership</h3>
+          <div className="toolkit-group toolkit-group-wide">
+            <h3>Leadership &amp; management</h3>
             <ul className="tag-list">
               {toolkit.leadership.map((t) => (
-                <li key={t}>{t}</li>
+                <li key={t}>
+                  <span>{t}</span>
+                </li>
               ))}
             </ul>
           </div>

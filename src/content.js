@@ -1,12 +1,35 @@
+import javascriptLogo from "./assets/logos/javascript.svg";
+import typescriptLogo from "./assets/logos/typescript.svg";
+import pythonLogo from "./assets/logos/python.svg";
+import javaLogo from "./assets/logos/java.svg";
+import sqlLogo from "./assets/logos/sql.svg";
+import reactLogo from "./assets/logos/react.svg";
+import nodejsLogo from "./assets/logos/nodejs.svg";
+import gitLogo from "./assets/logos/git.svg";
+import postgresqlLogo from "./assets/logos/postgresql.svg";
+import postmanLogo from "./assets/logos/postman.svg";
+import jiraLogo from "./assets/logos/jira.svg";
+
 export const site = {
   name: "Kamesh Vedula",
+  firstName: "Kamesh",
   role: "Founding Senior FDE at Rippling",
+  eyebrow: "Founding Senior FDE · Rippling",
   location: "New York, NY",
   email: "kameshvedula1@gmail.com",
   linkedin: "https://www.linkedin.com/in/kvedula1998/",
   github: "https://github.com/kvedula/",
-  heroSupport:
-    "Customer-facing engineer building production systems for Rippling’s most strategic accounts — founding FDE team, employee #4.",
+  heroIntro: {
+    before: "I know three things well — ",
+    highlights: [
+      "Forward Deployed Engineering",
+      "enterprise systems",
+      "customer delivery",
+    ],
+    after:
+      ". I build production software for Rippling’s most strategic accounts as a founding FDE — employee #4.",
+  },
+  heroTagline: "🚀 keep iterating and see what sticks",
 };
 
 export const companies = [
@@ -20,7 +43,7 @@ export const companies = [
 export const about = {
   headline: "I speak customer, product, and engineer.",
   paragraphs: [
-    "I'm a Senior Forward Deployed Engineer at Rippling and a founding member of the FDE team (employee #4). I lead complex enterprise implementations — custom integrations, workflow automation, and apps on Rippling’s platform — while mentoring FDEs and shipping platform improvements that go beyond any single engagement.",
+    "I'm a Senior Forward Deployed Engineer at Rippling and a founding member of the FDE team (employee #4). I lead complex enterprise implementations — custom integrations, workflow automation, and apps on Rippling’s platform — while mentoring FDEs and taking on growing people-leadership and management responsibility across the team.",
     "Before Rippling I was a Technical Product Manager at Redbird, a Solutions Engineer at Scale AI, and a Software Development Engineer at Amazon. Across those seats I’ve learned to own the full arc: discovery, delivery, and making ambiguous customer problems shipable.",
     "Outside of work I’m a private pilot, an avid traveler, and a Pokémon card collector. Based in New York City.",
   ],
@@ -35,9 +58,9 @@ export const career = [
     meta: "Founding FDE team · Employee #4",
     bullets: [
       "Lead concurrent enterprise implementations across sectors — custom integrations, workflows, and applications with production rigor.",
-      "Mentor FDEs and partner with Product, Engineering, AM, and CX to unblock execution and align customer needs with platform capabilities.",
+      "Mentor FDEs and step into management-style ownership — coaching, delivery accountability, and partnering with Product, Engineering, AM, and CX to unblock execution.",
       "Drive company-wide platform improvements beyond role boundaries; earned CEO recognition within the first month.",
-      "Build repeatable delivery processes that scale the team across a growing customer portfolio.",
+      "Build repeatable delivery processes and help scale the team as we grow the customer portfolio.",
     ],
   },
   {
@@ -119,25 +142,39 @@ export const education = {
 };
 
 export const toolkit = {
-  languages: ["Python", "JavaScript", "Java", "SQL", "REST APIs"],
-  platforms: [
-    "Rippling (Data Bridge, Custom Apps, Functions)",
-    "AWS",
-    "Git",
-    "Jira",
-    "Postman",
+  languages: [
+    { name: "JavaScript", logo: javascriptLogo },
+    { name: "TypeScript", logo: typescriptLogo },
+    { name: "Python", logo: pythonLogo },
+    { name: "Java", logo: javaLogo },
+    { name: "SQL", logo: sqlLogo },
   ],
-  domain: [
-    "Custom integrations",
-    "Workflow automation",
-    "Data modeling",
-    "API development",
-    "Enterprise deployments",
+  frameworks: [
+    { name: "React", logo: reactLogo },
+    { name: "Node.js", logo: nodejsLogo },
+    { name: "PostgreSQL", logo: postgresqlLogo },
+    { name: "Git", logo: gitLogo },
+    { name: "Postman", logo: postmanLogo },
+    { name: "Jira", logo: jiraLogo },
+  ],
+  ai: [
+    "Claude",
+    "Codex",
+    "Gemini",
+    "Cursor",
+    "ChatGPT",
+    "AWS",
+    "Rippling",
   ],
   leadership: [
-    "Technical mentorship",
-    "Delivery management",
-    "Process optimization",
+    "People leadership",
+    "Player-coach management",
+    "Mentorship & coaching",
+    "Hiring & interviewing",
+    "Performance feedback",
+    "Team development",
+    "Delivery ownership",
+    "Cross-functional leadership",
     "Stakeholder management",
     "Operational excellence",
   ],
