@@ -13,8 +13,8 @@ import jiraLogo from "./assets/logos/jira.svg";
 export const site = {
   name: "Kamesh Vedula",
   firstName: "Kamesh",
-  role: "Founding Senior FDE at Rippling",
-  eyebrow: "Founding Senior FDE · Rippling",
+  role: "Interim FDE Manager at Rippling",
+  eyebrow: "Interim FDE Manager · Rippling",
   location: "New York, NY",
   email: "kameshvedula1@gmail.com",
   linkedin: "https://www.linkedin.com/in/kvedula1998/",
@@ -27,7 +27,7 @@ export const site = {
       "customer delivery",
     ],
     after:
-      ". I build production software for Rippling’s most strategic accounts as a founding FDE — employee #4.",
+      ". Founding FDE at Rippling (employee #4), now stepping into management as the team scales — soon to be promoted.",
   },
   heroTagline: "🚀 keep iterating and see what sticks",
 };
@@ -43,13 +43,28 @@ export const companies = [
 export const about = {
   headline: "I speak customer, product, and engineer.",
   paragraphs: [
-    "I'm a Senior Forward Deployed Engineer at Rippling and a founding member of the FDE team (employee #4). I lead complex enterprise implementations — custom integrations, workflow automation, and apps on Rippling’s platform — while mentoring FDEs and taking on growing people-leadership and management responsibility across the team.",
+    "I'm an Interim FDE Manager at Rippling and a founding member of the FDE team (employee #4). I still lead complex enterprise implementations — custom integrations, workflow automation, and apps on Rippling’s platform — while owning people leadership, team enablement, and the operating rhythms that help the org scale.",
     "Before Rippling I was a Technical Product Manager at Redbird, a Solutions Engineer at Scale AI, and a Software Development Engineer at Amazon. Across those seats I’ve learned to own the full arc: discovery, delivery, and making ambiguous customer problems shipable.",
     "Outside of work I’m a private pilot, an avid traveler, and a Pokémon card collector. Based in New York City.",
   ],
 };
 
 export const career = [
+  {
+    title: "Interim FDE Manager",
+    company: "Rippling",
+    dates: "2026 — Present",
+    location: "New York, NY",
+    meta: "Soon to be promoted",
+    bullets: [
+      "Stepped into interim management as the FDE org scaled from 3 to 24 — owning acting reports while we hire external managers alongside our senior manager and one additional manager already in seat.",
+      "Distribute implementation load across my reports and coach FDEs through delivery, escalations, and day-to-day operating cadence.",
+      "Drive team enablement and process updates that streamline how we work as headcount and customer volume grow.",
+      "Run and support QBRs and MBRs; built forecasting dashboards to predict and analyze implementation and opportunity load.",
+      "Led a major Salesforce process change so FDEs can effectively track and manage implementations and tasks end to end.",
+      "Interview FDE and manager candidates — 50+ interviews to date — helping shape who joins the team next.",
+    ],
+  },
   {
     title: "Senior Forward Deployed Engineer",
     company: "Rippling",
@@ -58,9 +73,10 @@ export const career = [
     meta: "Founding FDE team · Employee #4",
     bullets: [
       "Lead concurrent enterprise implementations across sectors — custom integrations, workflows, and applications with production rigor.",
-      "Mentor FDEs and step into management-style ownership — coaching, delivery accountability, and partnering with Product, Engineering, AM, and CX to unblock execution.",
+      "Own escalated, high-risk customer engagements and turn them around — repeatedly trusted with the accounts that need the most attention.",
+      "Partner cross-functionally with Product, Engineering, AM, and CX to unblock execution and align customer needs with platform capabilities.",
       "Drive company-wide platform improvements beyond role boundaries; earned CEO recognition within the first month.",
-      "Build repeatable delivery processes and help scale the team as we grow the customer portfolio.",
+      "Helped build the operating foundations of a founding FDE team as it scaled from a handful of people into a full org.",
     ],
   },
   {

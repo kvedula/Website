@@ -288,7 +288,8 @@ function Career() {
       <div className="wrap reveal">
         <p className="section-label">Career</p>
         <h2 className="section-title">
-          From Amazon backends to founding FDE at Rippling.
+          From Amazon backends to founding FDE — and now interim management — at
+          Rippling.
         </h2>
         <p className="section-lead">
           Five-plus years delivering complex customer implementations —
