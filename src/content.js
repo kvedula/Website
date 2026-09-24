@@ -117,7 +117,7 @@ export const spotlight = [
     title: "NYC FDE Panel — Contour × ICONIQ",
     blurb:
       "Speaking on how FDE teams work with customers, translate insights into product, and turn bespoke deployments into repeatable solutions.",
-    href: "https://www.linkedin.com/posts/ivorytang_contour-is-co-hosting-a-fde-panel-in-nyc-share-7508217699722809344-pJui",
+    href: "https://events.iconiqcapital.com/iconiq/rsvp/register?e=nyc-builders-circle",
   },
   {
     title: "Kargo × Rippling — hiring ops, automated",
