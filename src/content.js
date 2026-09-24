@@ -45,7 +45,7 @@ export const about = {
   paragraphs: [
     "I'm an FDE Pod Lead at Rippling and a founding member of the FDE team (employee #3). I still lead complex enterprise implementations — custom integrations, workflow automation, and apps on Rippling’s platform — while owning people leadership, team enablement, and the operating rhythms that help the org scale.",
     "Before Rippling I was a Technical Product Manager at Redbird, a Solutions Engineer at Scale AI, and a Software Development Engineer at Amazon. Across those seats I’ve learned to own the full arc: discovery, delivery, and making ambiguous customer problems shipable.",
-    "Outside of work I’m a private pilot, an avid traveler, and a Pokémon card collector. Based in New York City.",
+    "Outside of work I’m a private pilot, an avid traveler, and a Pokémon collector. Based in New York City.",
   ],
 };
 
@@ -113,6 +113,12 @@ export const career = [
 ];
 
 export const spotlight = [
+  {
+    title: "NYC FDE Panel — Contour × ICONIQ",
+    blurb:
+      "Speaking on how FDE teams work with customers, translate insights into product, and turn bespoke deployments into repeatable solutions.",
+    href: "https://www.linkedin.com/posts/ivorytang_contour-is-co-hosting-a-fde-panel-in-nyc-share-7508217699722809344-pJui",
+  },
   {
     title: "Kargo × Rippling — hiring ops, automated",
     blurb:
