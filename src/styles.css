@@ -668,11 +668,13 @@ a:hover {
 
 @media (min-width: 560px) {
   .project-stats {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 .project-stats div {
+  display: flex;
+  flex-direction: column;
   padding: 0.85rem 0.9rem;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -680,8 +682,10 @@ a:hover {
 }
 
 .project-stats dt {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.35rem;
+  min-height: 2.5em;
   font-size: 0.72rem;
+  line-height: 1.25;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -691,6 +695,7 @@ a:hover {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 700;
+  line-height: 1;
   color: var(--ink);
 }
 
