@@ -79,6 +79,19 @@ export const career = [
     ],
   },
   {
+    title: "FDE Coach & Course Contributor",
+    company: "Aced (formerly Exponent)",
+    dates: "Present",
+    location: "Remote",
+    meta: "5-star coach · 40+ mock interviews",
+    bullets: [
+      "Conduct 40+ mock interview sessions with candidates breaking into forward deployed roles — maintaining a 5-star coach rating.",
+      "Help build Aced’s upcoming Forward Deployed Engineering course, expected to launch by November.",
+      "Filmed studio content used across the FDE course and broader interview prep library.",
+      "Featured in Aced’s YouTube content on forward deployed engineering careers.",
+    ],
+  },
+  {
     title: "Technical Product Manager",
     company: "Redbird.io",
     dates: "Sep 2023 — Jun 2025",
@@ -145,6 +158,12 @@ export const spotlight = [
     href: "https://events.iconiqcapital.com/iconiq/rsvp/register?e=nyc-builders-circle",
   },
   {
+    title: "Featured on Aced YouTube",
+    blurb:
+      "Featured in Aced’s YouTube content on breaking into forward deployed engineering.",
+    href: "https://youtu.be/-Y6YmuqGLpY",
+  },
+  {
     title: "Kargo × Rippling — hiring ops, automated",
     blurb:
       "Featured in Rippling’s customer story: consolidating headcount, Greenhouse, and onboarding into one pipeline — eliminating hundreds of hours of spreadsheet work.",
@@ -167,16 +186,6 @@ export const spotlight = [
     blurb:
       "Cameoed in Rippling’s talent-show marketing campaign — HR automation, with a side of breakdancing.",
     href: "https://www.linkedin.com/posts/vanessakahkesh_if-hr-feels-like-breakdancing-its-time-ugcPost-7422706489213067264-ALQq",
-  },
-];
-
-export const givingBack = [
-  {
-    title: "Coach — Exponent",
-    dates: "Present",
-    blurb:
-      "Actively coaching candidates preparing for technical interviews, and helping build Exponent’s FDE course from the ground up.",
-    href: "https://www.tryexponent.com/coach/Kamesh-Vedula",
   },
 ];
 

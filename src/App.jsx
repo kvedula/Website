@@ -8,7 +8,6 @@ import {
   career,
   companies,
   education,
-  givingBack,
   projects,
   site,
   spotlight,
@@ -275,10 +274,10 @@ function About() {
           </div>
           <aside className="about-aside">
             <div className="aside-note">
-              <h3>Coaching on Exponent</h3>
+              <h3>Coaching on Aced</h3>
               <p>
-                Helping people break into forward deployed roles — and building
-                Exponent’s FDE course from the ground up.
+                40+ mock interviews, 5-star rating — and helping build Aced’s
+                upcoming Forward Deployed Engineering course.
               </p>
               <a
                 href="https://www.tryexponent.com/coach/Kamesh-Vedula"
@@ -301,11 +300,10 @@ function Career() {
       <div className="wrap reveal">
         <p className="section-label">Career</p>
         <h2 className="section-title">
-          From Amazon backends to founding FDE — and now FDE Pod Lead — at
-          Rippling.
+          From Amazon backends to founding FDE at Rippling.
         </h2>
         <p className="section-lead">
-          Five-plus years delivering complex customer implementations —
+          Almost a decade delivering complex customer implementations —
           always in the seat where business problems meet production software.
         </p>
         <div className="career-list">
@@ -422,27 +420,6 @@ function Spotlight() {
             </li>
           ))}
         </ul>
-      </div>
-    </section>
-  );
-}
-
-function GivingBack() {
-  return (
-    <section className="section" id="giving-back">
-      <div className="wrap reveal">
-        <p className="section-label">Giving back</p>
-        <h2 className="section-title">Sending the ladder down.</h2>
-        {givingBack.map((item) => (
-          <article className="giving-item" key={item.title}>
-            <h3>{item.title}</h3>
-            <div className="dates">{item.dates}</div>
-            <p>{item.blurb}</p>
-            <a href={item.href} target="_blank" rel="noreferrer">
-              View coach profile →
-            </a>
-          </article>
-        ))}
       </div>
     </section>
   );
@@ -567,7 +544,6 @@ export default function App() {
         <Career />
         <Projects />
         <Spotlight />
-        <GivingBack />
         <Education />
         <Toolkit />
       </main>

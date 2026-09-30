@@ -792,40 +792,6 @@ a:hover {
   max-width: 62ch;
 }
 
-/* ——— Giving back ——— */
-.giving-item {
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.giving-item h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1.2rem;
-}
-
-.giving-item .dates {
-  color: var(--ink-muted);
-  font-size: 0.9rem;
-  margin-bottom: 0.65rem;
-}
-
-.giving-item p {
-  margin: 0 0 0.85rem;
-  color: var(--ink-secondary);
-  max-width: 58ch;
-}
-
-.giving-item a {
-  font-weight: 600;
-  color: var(--plum);
-  text-decoration: none;
-}
-
-.giving-item a:hover {
-  color: var(--primary);
-}
-
 /* ——— Education ——— */
 .edu {
   display: flex;
