@@ -708,22 +708,6 @@ a:hover {
   margin-bottom: 0;
 }
 
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.35rem;
-}
-
-.project-tech span {
-  padding: 0.38rem 0.7rem;
-  border: 1px solid var(--border-strong);
-  border-radius: 6px;
-  font-size: 0.85rem;
-  color: var(--ink-secondary);
-  background: var(--bg-elevated);
-}
-
 .project-cta {
   text-decoration: none;
 }

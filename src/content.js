@@ -134,7 +134,6 @@ export const projects = [
       "Daily, Unlimited, Themed Packs, and 14-Day Archive modes",
       "Deterministic scheduling across two years of curated content",
     ],
-    tech: ["HTML, CSS, JavaScript", "Netlify", "Umami analytics"],
   },
 ];
 

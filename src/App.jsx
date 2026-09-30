@@ -366,11 +366,6 @@ function Projects() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <div className="project-tech">
-              {project.tech.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
             <a
               className="btn btn-primary project-cta"
               href={project.url}
