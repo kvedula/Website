@@ -1,15 +1,25 @@
 import { useEffect, useEffectEvent, useState } from "react";
 import heroImage from "./assets/hero.jpg";
+import lineupSocial from "./assets/projects/thelineup/social-card.png";
+import lineupGameplay from "./assets/projects/thelineup/02-five-rounds-three-checks.png";
+import lineupResults from "./assets/projects/thelineup/04-results-worth-sharing.png";
 import {
   about,
   career,
   companies,
   education,
   givingBack,
+  projects,
   site,
   spotlight,
   toolkit,
 } from "./content.js";
+
+const projectImages = {
+  "social-card.png": lineupSocial,
+  "02-five-rounds-three-checks.png": lineupGameplay,
+  "04-results-worth-sharing.png": lineupResults,
+};
 
 function getInitialTheme() {
   if (typeof document === "undefined") return "dark";
@@ -111,6 +121,9 @@ function Nav({ theme, onToggleTheme, scrolled }) {
             </li>
             <li>
               <a href="#career">Career</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
             </li>
             <li>
               <a href="#spotlight">Spotlight</a>
@@ -320,6 +333,75 @@ function Career() {
   );
 }
 
+function Projects() {
+  const project = projects[0];
+
+  return (
+    <section className="section" id="projects">
+      <div className="wrap reveal">
+        <p className="section-label">Projects</p>
+        <h2 className="section-title">Building things outside of work.</h2>
+        <p className="section-lead">
+          Side projects where I own product, design, and ship end to end.
+        </p>
+        <article className="project-feature">
+          <div className="project-copy">
+            <div className="project-head">
+              <div>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+              </div>
+              <span className="project-status">{project.status}</span>
+            </div>
+            <dl className="project-stats">
+              {project.stats.map((stat) => (
+                <div key={stat.label}>
+                  <dt>{stat.label}</dt>
+                  <dd>{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <ul className="project-highlights">
+              {project.highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className="project-tech">
+              {project.tech.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+            <a
+              className="btn btn-primary project-cta"
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Play at playthelineup.com ↗
+            </a>
+          </div>
+          <div className="project-media">
+            <img
+              className="project-hero-image"
+              src={projectImages[project.image]}
+              alt={`${project.title} preview`}
+            />
+            <div className="project-gallery">
+              {project.gallery.map((image) => (
+                <img
+                  key={image}
+                  src={projectImages[image]}
+                  alt={`${project.title} screenshot`}
+                />
+              ))}
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
+
 function Spotlight() {
   return (
     <section className="section" id="spotlight">
@@ -488,6 +570,7 @@ export default function App() {
         <Logos />
         <About />
         <Career />
+        <Projects />
         <Spotlight />
         <GivingBack />
         <Education />

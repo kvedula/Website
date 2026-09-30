@@ -112,6 +112,32 @@ export const career = [
   },
 ];
 
+export const projects = [
+  {
+    title: "The Daily Lineup",
+    url: "https://playthelineup.com",
+    status: "Live",
+    description:
+      "A free daily browser game — arrange five items in the right order across history, science, culture, sports, and more. I built the gameplay, content scheduler, scoring, and full production stack.",
+    image: "social-card.png",
+    gallery: [
+      "02-five-rounds-three-checks.png",
+      "04-results-worth-sharing.png",
+    ],
+    stats: [
+      { label: "Challenge families", value: "252" },
+      { label: "Unique rounds", value: "3,650" },
+      { label: "Topics", value: "42" },
+    ],
+    highlights: [
+      "Five rounds, three checks, drag-and-drop on mobile and desktop",
+      "Daily, Unlimited, Themed Packs, and 14-Day Archive modes",
+      "Deterministic scheduling across two years of curated content",
+    ],
+    tech: ["HTML, CSS, JavaScript", "Netlify", "Umami analytics"],
+  },
+];
+
 export const spotlight = [
   {
     title: "NYC FDE Panel — Contour × ICONIQ",
