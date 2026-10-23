@@ -13,8 +13,8 @@ import jiraLogo from "./assets/logos/jira.svg";
 export const site = {
   name: "Kamesh Vedula",
   firstName: "Kamesh",
-  role: "FDE Pod Lead at Rippling",
-  eyebrow: "FDE Pod Lead · Rippling",
+  role: "Forward Deployed Engineering Manager at Rippling",
+  eyebrow: "Forward Deployed Engineering Manager · Rippling",
   location: "New York, NY",
   email: "kameshvedula1@gmail.com",
   linkedin: "https://www.linkedin.com/in/kvedula1998/",
@@ -27,7 +27,7 @@ export const site = {
       "customer delivery",
     ],
     after:
-      ". Founding FDE at Rippling (employee #3), now stepping into management as the team scales.",
+      ". Founding FDE at Rippling (employee #3), now leading the team as Forward Deployed Engineering Manager.",
   },
   heroTagline: "🚀 keep iterating and see what sticks",
 };
@@ -43,7 +43,7 @@ export const companies = [
 export const about = {
   headline: "I speak customer, product, and engineer.",
   paragraphs: [
-    "I'm an FDE Pod Lead at Rippling and a founding member of the FDE team (employee #3). I still lead complex enterprise implementations — custom integrations, workflow automation, and apps on Rippling’s platform — while owning people leadership, team enablement, and the operating rhythms that help the org scale.",
+    "I'm a Forward Deployed Engineering Manager at Rippling and a founding member of the FDE team (employee #3). I lead a pod of FDEs on complex enterprise implementations — custom integrations, workflow automation, and apps on Rippling’s platform — while owning people management, team enablement, and the operating rhythms that help the org scale.",
     "Before Rippling I was a Technical Product Manager at Redbird, a Solutions Engineer at Scale AI, and a Software Development Engineer at Amazon. Across those seats I’ve learned to own the full arc: discovery, delivery, and making ambiguous customer problems shipable.",
     "Outside of work I’m a private pilot, an avid traveler, and a Pokémon collector. Based in New York City.",
   ],
@@ -51,13 +51,14 @@ export const about = {
 
 export const career = [
   {
-    title: "FDE Pod Lead",
+    title: "Forward Deployed Engineering Manager",
     company: "Rippling",
-    dates: "2026 — Present",
+    dates: "Nov 2026 — Present",
     location: "New York, NY",
+    meta: "Effective Nov 1, 2026",
     bullets: [
-      "Stepped into pod lead responsibilities as the FDE org scaled from 3 to 24 — owning acting reports while we hire external managers alongside our senior manager and one additional manager already in seat.",
-      "Distribute implementation load across my reports and coach FDEs through delivery, escalations, and day-to-day operating cadence.",
+      "Lead a pod of FDEs as the org scaled from 3 to 24 — owning people management, delivery accountability, and coaching across the team.",
+      "Distribute implementation load across my reports and raise the bar on escalations, customer outcomes, and day-to-day operating cadence.",
       "Drive team enablement and process updates that streamline how we work as headcount and customer volume grow.",
       "Run and support QBRs and MBRs; built forecasting dashboards to predict and analyze implementation and opportunity load.",
       "Led a major Salesforce process change so FDEs can effectively track and manage implementations and tasks end to end.",
@@ -67,7 +68,7 @@ export const career = [
   {
     title: "Senior Forward Deployed Engineer",
     company: "Rippling",
-    dates: "Jul 2025 — Present",
+    dates: "Jul 2025 — Nov 2026",
     location: "New York, NY",
     meta: "Founding FDE team · Employee #3",
     bullets: [
