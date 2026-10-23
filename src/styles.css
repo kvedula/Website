@@ -27,6 +27,8 @@
       rgba(155, 45, 122, 0.12),
       transparent 60%
     );
+  --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --nav-edge: rgba(255, 255, 255, 0.07);
   color-scheme: dark;
 }
 
@@ -56,6 +58,8 @@
       rgba(121, 0, 93, 0.08),
       transparent 60%
     );
+  --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --nav-edge: rgba(255, 255, 255, 0.72);
   color-scheme: light;
 }
 
@@ -121,6 +125,31 @@ a:hover {
   border-top: 1px solid var(--border);
 }
 
+.section--surface {
+  background: var(--bg-elevated);
+  border-top-color: transparent;
+  box-shadow: inset 0 1px 0 var(--border);
+}
+
+.section--glow {
+  background: var(--bg-elevated),
+    radial-gradient(
+      ellipse 85% 55% at 50% 0%,
+      rgba(255, 168, 29, 0.09),
+      transparent 58%
+    );
+  background-blend-mode: normal;
+}
+
+[data-theme="light"] .section--glow {
+  background: var(--bg-elevated),
+    radial-gradient(
+      ellipse 85% 55% at 50% 0%,
+      rgba(255, 168, 29, 0.12),
+      transparent 58%
+    );
+}
+
 .section-label {
   font-size: 0.78rem;
   font-weight: 600;
@@ -138,6 +167,7 @@ a:hover {
   letter-spacing: -0.02em;
   margin: 0 0 1.25rem;
   max-width: 22ch;
+  font-optical-sizing: auto;
 }
 
 .section-lead {
@@ -149,8 +179,8 @@ a:hover {
 /* Reveal on scroll */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(14px);
+  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
 }
 
 .reveal.is-visible {
@@ -164,13 +194,21 @@ a:hover {
   inset: 0 0 auto 0;
   z-index: 50;
   background: var(--nav-bg);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease, background-color 0.35s ease;
+  box-shadow: inset 0 1px 0 var(--nav-edge);
+  transition: border-color 0.3s var(--ease-out), background-color 0.35s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
 }
 
 .nav.is-scrolled {
   border-bottom-color: var(--border);
+  box-shadow: inset 0 1px 0 var(--nav-edge), 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .nav.is-scrolled {
+  box-shadow: inset 0 1px 0 var(--nav-edge), 0 8px 28px rgba(40, 22, 25, 0.06);
 }
 
 .nav-inner {
@@ -206,10 +244,24 @@ a:hover {
   font-size: 0.9rem;
   color: var(--ink-secondary);
   font-weight: 500;
+  padding: 0.35rem 0.15rem;
+  border-radius: 6px;
+  transition: color 0.2s var(--ease-out), background 0.2s var(--ease-out),
+    transform 0.15s var(--ease-out);
 }
 
 .nav-links a:hover {
   color: var(--ink);
+}
+
+.nav-links a.is-active {
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--primary);
+}
+
+.nav-links a:active {
+  transform: scale(0.97);
 }
 
 .nav-actions {
@@ -229,11 +281,20 @@ a:hover {
   cursor: pointer;
   display: grid;
   place-items: center;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s var(--ease-out);
 }
 
 .theme-toggle:hover {
   border-color: var(--primary);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.nav-brand:active {
+  transform: scale(0.98);
+  display: inline-block;
 }
 
 .theme-toggle svg {
@@ -302,6 +363,11 @@ a:hover {
   justify-self: center;
   border: 3px solid var(--primary);
   box-shadow: var(--shadow-warm), 0 0 0 10px rgba(255, 168, 29, 0.12);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.hero-portrait:hover {
+  transform: scale(1.02);
 }
 
 @media (min-width: 860px) {
@@ -333,9 +399,27 @@ a:hover {
   margin: 0 0 1rem;
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--primary);
+}
+
+.hero-eyebrow-long {
+  display: none;
+}
+
+.hero-eyebrow-short {
+  display: inline;
+}
+
+@media (min-width: 640px) {
+  .hero-eyebrow-long {
+    display: inline;
+  }
+
+  .hero-eyebrow-short {
+    display: none;
+  }
 }
 
 .hero-brand {
@@ -346,6 +430,7 @@ a:hover {
   margin: 0 0 1.15rem;
   font-weight: 400;
   color: var(--ink);
+  font-optical-sizing: auto;
 }
 
 .hero-intro {
@@ -387,7 +472,11 @@ a:hover {
   text-decoration: none;
   border: 1px solid transparent;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s var(--ease-out);
+}
+
+.btn:active {
+  transform: scale(0.97) translateY(0);
 }
 
 .btn svg {
@@ -422,30 +511,45 @@ a:hover {
 }
 
 .hero-rise {
-  animation: heroRise 0.9s ease both;
+  animation: heroRise 0.9s var(--ease-out) both;
 }
 
 .hero-rise-delay {
-  animation: heroRise 0.9s ease 0.12s both;
+  animation: heroRise 0.9s var(--ease-out) 0.12s both;
 }
 
 .hero-rise-delay-2 {
-  animation: heroRise 0.9s ease 0.24s both;
+  animation: heroRise 0.9s var(--ease-out) 0.24s both;
 }
 
 .hero-rise-delay-3 {
-  animation: heroRise 0.9s ease 0.36s both;
+  animation: heroRise 0.9s var(--ease-out) 0.36s both;
 }
 
 @keyframes heroRise {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes heroPortraitIn {
+  from {
+    opacity: 0.88;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-portrait.hero-rise-delay {
+  animation: heroPortraitIn 1s var(--ease-out) 0.1s both;
 }
 
 /* ——— Logos ——— */
@@ -541,8 +645,15 @@ a:hover {
 }
 
 .job {
-  padding: 2rem 0;
+  padding: 2rem 0 2rem 1.35rem;
   border-top: 1px solid var(--border);
+  border-left: 2px solid var(--border);
+  margin-left: 0.15rem;
+  transition: border-left-color 0.25s var(--ease-out);
+}
+
+.job:hover {
+  border-left-color: rgba(255, 168, 29, 0.45);
 }
 
 .job:last-child {
@@ -632,6 +743,7 @@ a:hover {
   font-size: clamp(1.8rem, 3vw, 2.35rem);
   font-weight: 400;
   letter-spacing: -0.02em;
+  font-optical-sizing: auto;
 }
 
 .project-description {
@@ -697,6 +809,7 @@ a:hover {
   font-weight: 700;
   line-height: 1;
   color: var(--ink);
+  font-variant-numeric: tabular-nums;
 }
 
 .project-highlights {
@@ -739,6 +852,12 @@ a:hover {
   width: 100%;
   border-radius: 12px;
   border: 1px solid var(--border);
+  transition: transform 0.35s var(--ease-out), border-color 0.25s ease;
+}
+
+.project-gallery img:hover {
+  transform: scale(1.02);
+  border-color: var(--border-strong);
 }
 
 /* ——— Spotlight ——— */
@@ -753,10 +872,20 @@ a:hover {
 
 .spotlight-item a {
   display: block;
-  padding: 1.35rem 0;
+  padding: 1.35rem 0.85rem;
+  margin-inline: -0.85rem;
   border-top: 1px solid var(--border);
   text-decoration: none;
-  transition: color 0.2s ease;
+  border-radius: 10px;
+  transition: color 0.2s ease, background 0.2s var(--ease-out), transform 0.15s var(--ease-out);
+}
+
+.spotlight-item a:active {
+  transform: scale(0.995);
+}
+
+.spotlight-item a:hover {
+  background: var(--surface);
 }
 
 .spotlight-item:last-child a {
@@ -783,6 +912,12 @@ a:hover {
   color: var(--ink-muted);
   font-size: 0.95rem;
   flex-shrink: 0;
+  transition: transform 0.2s var(--ease-out), color 0.2s ease;
+}
+
+.spotlight-item a:hover .spotlight-arrow {
+  color: var(--primary);
+  transform: translate(3px, -2px);
 }
 
 .spotlight-blurb {
@@ -917,4 +1052,48 @@ a:hover {
 
 .footer-links a:hover {
   color: var(--primary);
+}
+
+.footer-links a:active {
+  transform: scale(0.97);
+  display: inline-block;
+}
+
+/* ——— Accessibility & system preferences ——— */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-rise,
+  .hero-rise-delay,
+  .hero-rise-delay-2,
+  .hero-rise-delay-3,
+  .hero-portrait.hero-rise-delay {
+    animation: none;
+  }
+
+  .btn:hover,
+  .btn:active,
+  .nav-links a:active,
+  .theme-toggle:active,
+  .hero-portrait:hover,
+  .project-gallery img:hover,
+  .spotlight-item a:active {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg);
+  }
 }

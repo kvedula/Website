@@ -15,6 +15,7 @@ export const site = {
   firstName: "Kamesh",
   role: "Forward Deployed Engineering Manager at Rippling",
   eyebrow: "Forward Deployed Engineering Manager · Rippling",
+  eyebrowShort: "FDE Engineering Manager · Rippling",
   location: "New York, NY",
   email: "kameshvedula1@gmail.com",
   linkedin: "https://www.linkedin.com/in/kvedula1998/",

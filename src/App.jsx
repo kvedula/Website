@@ -20,6 +20,14 @@ const projectImages = {
   "04-results-worth-sharing.png": lineupResults,
 };
 
+const NAV_SECTIONS = [
+  { id: "about", label: "About" },
+  { id: "career", label: "Career" },
+  { id: "projects", label: "Projects" },
+  { id: "spotlight", label: "Spotlight" },
+  { id: "toolkit", label: "Toolkit" },
+];
+
 function getInitialTheme() {
   if (typeof document === "undefined") return "dark";
   return document.documentElement.getAttribute("data-theme") || "dark";
@@ -79,6 +87,34 @@ function useNavScroll() {
   return scrolled;
 }
 
+function useActiveSection() {
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const sections = NAV_SECTIONS.map(({ id }) => document.getElementById(id)).filter(
+      Boolean
+    );
+    if (!sections.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target.id) {
+          setActive(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-42% 0px -42% 0px", threshold: [0, 0.15, 0.35, 0.55, 0.75] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  return active;
+}
+
 function SunIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -106,7 +142,7 @@ function MoonIcon() {
   );
 }
 
-function Nav({ theme, onToggleTheme, scrolled }) {
+function Nav({ theme, onToggleTheme, scrolled, activeSection }) {
   return (
     <header className={`nav${scrolled ? " is-scrolled" : ""}`}>
       <div className="wrap nav-inner">
@@ -115,21 +151,17 @@ function Nav({ theme, onToggleTheme, scrolled }) {
         </a>
         <nav aria-label="Primary">
           <ul className="nav-links">
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#career">Career</a>
-            </li>
-            <li>
-              <a href="#projects">Projects</a>
-            </li>
-            <li>
-              <a href="#spotlight">Spotlight</a>
-            </li>
-            <li>
-              <a href="#toolkit">Toolkit</a>
-            </li>
+            {NAV_SECTIONS.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={activeSection === id ? "is-active" : undefined}
+                  aria-current={activeSection === id ? "location" : undefined}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className="nav-actions">
@@ -185,7 +217,10 @@ function Hero() {
     <section className="hero" id="top" aria-label="Introduction">
       <div className="wrap hero-layout">
         <div className="hero-content">
-          <p className="hero-eyebrow hero-rise">{site.eyebrow}</p>
+          <p className="hero-eyebrow hero-rise">
+            <span className="hero-eyebrow-short">{site.eyebrowShort}</span>
+            <span className="hero-eyebrow-long">{site.eyebrow}</span>
+          </p>
           <h1 className="hero-brand hero-rise-delay">
             Hello, I&apos;m {site.firstName}.
           </h1>
@@ -296,7 +331,7 @@ function About() {
 
 function Career() {
   return (
-    <section className="section" id="career">
+    <section className="section section--surface" id="career">
       <div className="wrap reveal">
         <p className="section-label">Career</p>
         <h2 className="section-title">
@@ -335,7 +370,7 @@ function Projects() {
   const project = projects[0];
 
   return (
-    <section className="section" id="projects">
+    <section className="section section--surface section--glow" id="projects">
       <div className="wrap reveal">
         <p className="section-label">Projects</p>
         <h2 className="section-title">Building things outside of work.</h2>
@@ -427,7 +462,7 @@ function Spotlight() {
 
 function Education() {
   return (
-    <section className="section" id="education">
+    <section className="section section--surface" id="education">
       <div className="wrap reveal">
         <p className="section-label">Education</p>
         <h2 className="section-title">Computer science, Southern California.</h2>
@@ -532,11 +567,17 @@ function Footer() {
 export default function App() {
   const { theme, toggle } = useTheme();
   const scrolled = useNavScroll();
+  const activeSection = useActiveSection();
   useReveal();
 
   return (
     <>
-      <Nav theme={theme} onToggleTheme={toggle} scrolled={scrolled} />
+      <Nav
+        theme={theme}
+        onToggleTheme={toggle}
+        scrolled={scrolled}
+        activeSection={activeSection}
+      />
       <main>
         <Hero />
         <Logos />
